@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Browser View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BrowserViewController" customModule="BasicBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,175 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUL-vc-3Mt">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jKW-2H-PpL"/>
+                                    <barButtonItem title="&lt;" id="Wzj-GU-CvU">
+                                        <connections>
+                                            <action selector="didSelectBackButton:" destination="BYZ-38-t0r" id="dBg-Fs-y9o"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NAA-XL-9ti"/>
+                                    <barButtonItem title="&gt;" id="eSc-5w-xrG" userLabel="forwardButton">
+                                        <connections>
+                                            <action selector="didSelectForwardButton:" destination="BYZ-38-t0r" id="qFa-JX-w2g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zlE-Oy-je6"/>
+                                    <barButtonItem systemItem="refresh" id="DKm-VU-yWo">
+                                        <connections>
+                                            <action selector="didSelectRefreshButton:" destination="BYZ-38-t0r" id="IeB-YA-g22"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZQW-HA-kZA"/>
+                                    <barButtonItem systemItem="stop" id="rNr-Kv-d9V">
+                                        <connections>
+                                            <action selector="didSelectStopButton:" destination="BYZ-38-t0r" id="8U0-Tt-r2T"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9Tp-Rh-dqO"/>
+                                    <barButtonItem systemItem="add" id="Cpc-ZE-pcn">
+                                        <connections>
+                                            <action selector="didSelectAddBookmark:" destination="BYZ-38-t0r" id="aRx-3V-exA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="G4U-yf-xDE"/>
+                                    <barButtonItem systemItem="bookmarks" id="8E6-7p-CzD">
+                                        <connections>
+                                            <action selector="didSelectViewBookmarks:" destination="BYZ-38-t0r" id="a9R-E2-Dq8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Mmr-Bv-wCb"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-jK-nvZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="SWe-RH-INf">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="q3S-GX-OLU">
+                                            <rect key="frame" x="16" y="7" width="301" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="BYZ-38-t0r" id="Efa-iK-44k"/>
+                                            </connections>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Go" id="lGy-Gh-xcB">
+                                        <connections>
+                                            <action selector="didSelectGoButton:" destination="BYZ-38-t0r" id="Cwo-C7-eFr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4u7-QL-uDQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p0N-EK-PAh"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AzY-eZ-Kzd">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4u7-QL-uDQ" firstAttribute="top" secondItem="pYf-jK-nvZ" secondAttribute="bottom" id="2AY-Hh-1ZE"/>
+                            <constraint firstItem="qUL-vc-3Mt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="47j-ak-pts"/>
+                            <constraint firstItem="4u7-QL-uDQ" firstAttribute="trailing" secondItem="pYf-jK-nvZ" secondAttribute="trailing" id="83Y-fm-fSD"/>
+                            <constraint firstItem="qUL-vc-3Mt" firstAttribute="top" secondItem="4u7-QL-uDQ" secondAttribute="bottom" id="EBh-kb-4XY"/>
+                            <constraint firstAttribute="trailing" secondItem="pYf-jK-nvZ" secondAttribute="trailing" id="IKE-Vw-PGS"/>
+                            <constraint firstItem="pYf-jK-nvZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="To4-5N-pE4"/>
+                            <constraint firstItem="4u7-QL-uDQ" firstAttribute="leading" secondItem="pYf-jK-nvZ" secondAttribute="leading" id="jYl-M2-2yu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qUL-vc-3Mt" secondAttribute="bottom" id="lKA-0S-3V6"/>
+                            <constraint firstAttribute="trailing" secondItem="qUL-vc-3Mt" secondAttribute="trailing" id="mhh-L8-vgc"/>
+                            <constraint firstItem="pYf-jK-nvZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="oZQ-16-AbW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="AzY-eZ-Kzd" id="6ss-rS-K3m"/>
+                        <outlet property="addButton" destination="Cpc-ZE-pcn" id="vTq-e6-e3r"/>
+                        <outlet property="backButton" destination="Wzj-GU-CvU" id="y3h-55-SFh"/>
+                        <outlet property="bookmarksButton" destination="8E6-7p-CzD" id="7M6-fH-GaG"/>
+                        <outlet property="forwardButton" destination="eSc-5w-xrG" id="VbR-Dc-nyh"/>
+                        <outlet property="goButton" destination="lGy-Gh-xcB" id="zjE-ZM-AsW"/>
+                        <outlet property="refreshButton" destination="eSc-5w-xrG" id="z11-By-wmY"/>
+                        <outlet property="stopButton" destination="rNr-Kv-d9V" id="Bv9-Pw-WTI"/>
+                        <outlet property="textField" destination="q3S-GX-OLU" id="rgO-Na-daF"/>
+                        <outlet property="webView" destination="4u7-QL-uDQ" id="z91-GL-SuZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="Rh9-En-Ln9">
+            <objects>
+                <tableViewController storyboardIdentifier="BookmarksViewController" id="DKz-Ub-j3s" customClass="BookmarksViewController" customModule="BasicBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xFl-h7-84l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="BookmarkCell" textLabel="KyV-n0-x3W" style="IBUITableViewCellStyleDefault" id="D4O-Ke-rqT">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D4O-Ke-rqT" id="hCj-e4-dSG">
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KyV-n0-x3W">
+                                            <rect key="frame" x="15" y="0.0" width="293" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DKz-Ub-j3s" id="CJf-CH-F71"/>
+                            <outlet property="delegate" destination="DKz-Ub-j3s" id="shh-DG-GMT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bookmarks" id="83I-yO-IeV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SpG-Me-aIm">
+                            <connections>
+                                <action selector="didSelectDoneButton:" destination="DKz-Ub-j3s" id="AEz-mi-NHb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2n-F9-OGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="844.22788605697156"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9EI-df-LIE">
+            <objects>
+                <navigationController storyboardIdentifier="NAV_BOOKMARKS" automaticallyAdjustsScrollViewInsets="NO" id="Vr5-O8-f9L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g9Z-td-sFc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DKz-Ub-j3s" kind="relationship" relationship="rootViewController" id="gSd-sp-C0s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kce-Hn-Muv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.8" y="843.32833583208401"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,8 @@
 		B085F2C31EA658F7007BA8C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085F2C11EA658F7007BA8C1 /* Main.storyboard */; };
 		B085F2C51EA658F7007BA8C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B085F2C41EA658F7007BA8C1 /* Assets.xcassets */; };
 		B085F2C81EA658F7007BA8C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085F2C61EA658F7007BA8C1 /* LaunchScreen.storyboard */; };
+		B085F2EE1EA796F1007BA8C1 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085F2ED1EA796F1007BA8C1 /* BookmarksViewController.swift */; };
+		B085F2F01EA79705007BA8C1 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085F2EF1EA79705007BA8C1 /* Bookmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B085F2C41EA658F7007BA8C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B085F2C71EA658F7007BA8C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B085F2C91EA658F7007BA8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B085F2ED1EA796F1007BA8C1 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		B085F2EF1EA79705007BA8C1 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				B085F2BD1EA658F7007BA8C1 /* AppDelegate.swift */,
+				B085F2ED1EA796F1007BA8C1 /* BookmarksViewController.swift */,
 				B085F2BF1EA658F7007BA8C1 /* BrowserViewController.swift */,
 				B085F2C11EA658F7007BA8C1 /* Main.storyboard */,
 				B085F2C41EA658F7007BA8C1 /* Assets.xcassets */,
 				B085F2C61EA658F7007BA8C1 /* LaunchScreen.storyboard */,
 				B085F2C91EA658F7007BA8C1 /* Info.plist */,
+				B085F2EF1EA79705007BA8C1 /* Bookmark.swift */,
 			);
 			path = BasicBrowser;
 			sourceTree = "<group>";
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B085F2EE1EA796F1007BA8C1 /* BookmarksViewController.swift in Sources */,
 				B085F2C01EA658F7007BA8C1 /* BrowserViewController.swift in Sources */,
 				B085F2BE1EA658F7007BA8C1 /* AppDelegate.swift in Sources */,
+				B085F2F01EA79705007BA8C1 /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +273,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SPB9BT3PT6;
 				INFOPLIST_FILE = BasicBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynehartman.BasicBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,6 +287,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SPB9BT3PT6;
 				INFOPLIST_FILE = BasicBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynehartman.BasicBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +314,7 @@
 				B085F2CE1EA658F7007BA8C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
